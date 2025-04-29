@@ -91,7 +91,7 @@ export default function PingPong() {
                     pressed.current.has("ArrowUp") ? 0 : pressed.current.has("ArrowDown") ? 2 : 1;
 
                 const n = { ...prev };
-                const oldX = n.ballX, oldY = n.ballY;
+                const oldX = n.ballX
                 n.ballX += n.ballSpeedX; n.ballY += n.ballSpeedY;
                 if (n.ballY <= 0 || n.ballY >= H - BALL_SZ) n.ballSpeedY = -n.ballSpeedY;
 
@@ -145,9 +145,8 @@ export default function PingPong() {
             requestAnimationFrame(step);
         };
         requestAnimationFrame(step);
-    }, [mode]);               // пере-инициализировать цикл при смене режима
+    }, [mode]);
 
-    /* ------------------------ экспорт логов ----------------------------- */
     const exportData = () => {
         const dump = (arr: Transition[], name: string) => {
             if (!arr.length) return;
@@ -159,7 +158,6 @@ export default function PingPong() {
         dump(bufL.current, "left"); dump(bufR.current, "right");
     };
 
-    /* ---------------------------- JSX ----------------------------------- */
     return (
         <div ref={hostRef} style={{ position: "relative", width: "100%", height: "100%", background: "black" }}>
             <div style={{ position: "absolute", left: 0, top: S.paddle1Y, width: PADDLE_W, height: PADDLE_H, background: "white" }} />
