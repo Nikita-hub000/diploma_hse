@@ -6,7 +6,7 @@ import datetime
 # ─── грузим две модели (можно одну, если хотите) ───────────────
 left  = d3rlpy.algos.DiscreteCQLConfig().create(device="cpu")
 left.create_impl((6,), 3)
-left.load_model("left_cql/cql_agent.pt")
+left.load_model("cql/cql_agent.pt")
 left_scaler = joblib.load("left_cql/scaler.pkl")
 
 right = d3rlpy.algos.DiscreteCQLConfig().create(device="cpu")
